@@ -2,28 +2,14 @@ import React, { useState, useEffect, useCallback } from "react";
 
 const SetTimeout = () => {
   const [count, setCount] = useState(10);
-
-  const getCounter = useCallback(() => {
-    const countDown = () => {
-      setCount((pcount) => {
-        if (pcount <= 1) {
-          return 0;
-        } else {
-          return pcount - 1;
-        }
-      });
-    };
-    const timer = setTimeout(() => {
-      countDown();
-      getCounter();
-    }, 1000);
-    return timer;
-  }, []);
-
+  
   useEffect(() => {
-    const timer = getCounter();
+    const timer = setTimeout(() => {
+      if(count <= 0) return;
+      setCount(prev => prev - 1);
+        }, 1000);
     return () => clearTimeout(timer);
-  }, [getCounter]);
+  }, [count]);
 
   return <div>{count}</div>;
 };

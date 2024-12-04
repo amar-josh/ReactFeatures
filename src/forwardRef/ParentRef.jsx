@@ -7,17 +7,17 @@ const ParentRef = () => {
     ref.current.focus();
   };
 
-  const hanldeClickChildFun = () => {
-    ref.current.handleChange();
-  };
+  // const hanldeClickChildFun = () => {
+  //   ref.current.handleChange();
+  // };
 
   return (
     <div>
       ParentRef
       <ChildRef ref={ref} />
+      {/* <button onClick={() => hanldeClickChildFun()}>Click Me</button> */}
       {/* below button perform action for direct child dom element */}
-      {/* <button onClick={() => handleClick()}>Click Me</button> */}
-      <button onClick={() => hanldeClickChildFun()}>Click Me</button>
+      <button onClick={() => handleClick()}>Click Me</button>
     </div>
   );
 };

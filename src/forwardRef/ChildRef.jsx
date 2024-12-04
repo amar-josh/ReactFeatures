@@ -5,17 +5,19 @@ const ChildRef = forwardRef((props, ref) => {
 
   const handleChange = () => {
     console.log(inputRef.current.value);
+    inputRef.current.focus();
   };
 
-  useImperativeHandle(ref, () => ({
-    handleChange,
-  }));
+  // access or expose method or take control of child component into parent component then use it.
+  // useImperativeHandle(ref, () => ({
+  //   handleChange,
+  // }));
 
   return (
     <div>
+      {/* <input ref={inputRef} type="text" placeholder="childRef" /> */}
       {/* Below code give the direct access of DOM element to the parent element*/}
-      {/* <input ref={ref} type="text" placeholder="parentref" /> */}
-      <input ref={inputRef} type="text" placeholder="childRef" />
+      <input ref={ref} type="text" placeholder="parentref" />
     </div>
   );
 });
